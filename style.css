@@ -42,6 +42,13 @@ section div p {
     font-size: 2em;
 }
 
+#warning {
+    text-align: center;
+    color: white;
+    font-size: 2em;
+    -webkit-text-stroke: 2px black;
+
+}
 #contador { 
     text-align: center;
     font-size: 1.5em;
