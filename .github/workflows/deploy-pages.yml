@@ -16,20 +16,17 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Prepare site folder (copy files to /v1 or /v2 or /<tag>)
+      - name: Prepare site folder
         run: |
           rm -rf site || true
           mkdir -p site
 
-          # se a branch for main -> publica em /v1
           if [ "$GITHUB_REF" = "refs/heads/main" ]; then
             mkdir -p site/v1
             rsync -av --exclude='.git' --exclude='.github' --exclude='node_modules' --exclude='site' ./ site/v1/
-          # se for pause-feature -> publica em /v2
           elif [ "$GITHUB_REF" = "refs/heads/pause-feature" ]; then
             mkdir -p site/v2
             rsync -av --exclude='.git' --exclude='.github' --exclude='node_modules' --exclude='site' ./ site/v2/
-          # se for tag (ex: v1.0.0) -> publica em /v1.0.0
           elif [[ "$GITHUB_REF" == refs/tags/* ]]; then
             TAG=${GITHUB_REF#refs/tags/}
             mkdir -p "site/$TAG"
@@ -38,19 +35,19 @@ jobs:
             echo "Ref não mapeada: $GITHUB_REF"
           fi
 
-          # cria um index simples da página com links para as versões
+          # cria index com links clicáveis
           cat > site/index.html <<'HTML'
           <!doctype html>
           <html>
-          <head><meta charset="utf-8"><title>Temporizador — Demos</title></head>
+          <head><meta charset="utf-8"><title>Relationship Timer — Demos</title></head>
           <body>
-            <h1>Temporizador — Versões</h1>
+            <h1>Relationship Timer — Versões</h1>
             <ul>
               <li><a href="./v1/">Versão v1 (sem pausa)</a></li>
               <li><a href="./v2/">Versão v2 (com pausa)</a></li>
             </ul>
             <hr>
-            <p>Tags publicadas (ex.: /v1.0.0) aparecerão aqui também.</p>
+            <p>Tags publicadas (ex.: /v1.0.0, /v2.0.0) aparecerão aqui automaticamente.</p>
           </body>
           </html>
           HTML
