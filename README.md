@@ -1,6 +1,6 @@
 # 💖 Relationship Timer
 
-Bem-vindo ao **Relationship Timer**, um temporizador especial que acompanha cada momento do relacionamento de Rony & Carolina! ⏳❤️
+Bem-vindo ao **Relationship Timer**, um temporizador especial que celebra momentos únicos e especiais! ⏳❤️
 
 ---
 
@@ -20,10 +20,4 @@ Clique no link abaixo para ver o temporizador em ação:
 
 ---
 
-### ❤️ Uma mensagem especial
-
-Além de poder compartilhar este temporizador com quem você ama, este projeto é também uma forma de **eu expressar meu amor por quem eu amo**. Cada detalhe foi feito com carinho, para celebrar momentos únicos e especiais.  
-
----
-
-### ⚡ Divirta-se e compartilhe com quem você ama!
+### ⚡ Divirta-se e compartilhe momentos especiais!
